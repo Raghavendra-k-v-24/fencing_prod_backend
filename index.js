@@ -6,7 +6,12 @@ const { Students, History } = require("./database");
 
 const app = express();
 
-app.use([cors(), bodyParser.json()]);
+app.use(
+  cors({
+    origin: "https://fencing-prod.vercel.app",
+  })
+);
+app.use(bodyParser.json());
 
 app.get("/student/:group", async function (req, res) {
   try {
